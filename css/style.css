@@ -18,17 +18,14 @@ img {
 
 .gallery-item {
     width: calc((100% - 48px) / 3);
+    transition: transform 0.3s;
 }
 
 .gallery-item .gallery-link:hover {
     cursor: zoom-in;
 }
 
-.gallery-item .gallery-link:active {
-    cursor: zoom-in;
-}
 
 .gallery-item:hover {
-    width: calc((100% - 48px) / 3 + 16px);
-    margin: 0 -8px;
+    transform: scale(1.03);
 }
