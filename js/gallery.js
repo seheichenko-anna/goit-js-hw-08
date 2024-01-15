@@ -82,22 +82,22 @@ const markup = images.map(image => {
 
 gallery.innerHTML = markup.join('');
 
-gallery.addEventListener('click', onImageClick);
+gallery.addEventListener('click', onImageModalOpenClick);
 
-function onImageClick(event) {
+function onImageModalOpenClick(event) {
   event.preventDefault();
   const targetImage = event.target.closest('.gallery-image');
   if (targetImage) {
     const largeImageSource = targetImage.dataset.source;
     instance = basicLightbox.create(`<img src=${largeImageSource} />`);
     instance.show();
-    document.addEventListener('keydown', onKeyPress);
+    document.addEventListener('keydown', onImageCloseKeyPress);
   }
 }
 
-function onKeyPress(event) {
+function onImageCloseKeyPress(event) {
   if (event.code === 'Escape') {
     instance.close();
-    document.removeEventListener('keydown', onKeyPress);
+    document.removeEventListener('keydown', onImageCloseKeyPress);
   }
 }
